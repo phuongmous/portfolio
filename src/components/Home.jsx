@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { GiPositionMarker } from "react-icons/gi";
-import homeImage from "../../public/img/home-img.png";
+import homeImage from "../img/home-img.png";
+import { Link as ScrollLink, animateScroll as scroll } from 'react-scroll';
 
-export default function Home () {
+export default function Home ({navHeight}) {
     const textToType = 'PHUONG VU';
     const [currentPosition, setCurrentPosition] = useState(0);
     useEffect(() => {
         const intervalId = setInterval(() => {
           setCurrentPosition((prevPosition) => prevPosition + 1);
-        }, 150);
+        }, 250);
         // Clear the interval when the component unmounts or when the typing is complete
         return () => {
           clearInterval(intervalId);
@@ -17,8 +18,17 @@ export default function Home () {
       // Display only the characters that have been typed so far
     const typedText = textToType.slice(0, currentPosition);
 
+    const handleScrollToAbout = () => {
+        const position = document.getElementById('aboutSection').offsetTop - navHeight
+        console.log('NAV', navHeight, document.getElementById('aboutSection').offsetTop - navHeight)
+        scroll.scrollTo(position, {
+          smooth: 'true',
+        });
+        
+    };
+
     return (
-        <div className="bg-gray-100 px-5 py-[8rem] ">
+        <div className="h-screen bg-gray-100 px-5 py-[3rem] md:py-[9rem] ">
             <div className="container mx-auto flex-col md:flex justify-center items-center">
                 <div className="flex flex-col md:flex-row items-center">
                     <div className="text-center md:text-left md:mr-10">
@@ -31,8 +41,15 @@ export default function Home () {
                         </div>
                     </div>
                         <div className="flex-shrink-0 my-4 mx-[6rem] md:mx-0">
-                        <img src={homeImage} alt="Home Image" className="md:w-60 md:h-60 rounded-full" />
+                        <img src={homeImage} alt="Home Image" className="md:w-60 md:h-60" />
                     </div>
+                </div>
+                <div className="mt-[10rem] md:mt-[15rem]">
+                    <ScrollLink to="aboutSection" smooth={true} duration={800}>
+                        <button className="bg-blue-100 text-black py-2 px-4 rounded focus:outline-none animate-bounce" onClick={handleScrollToAbout}>
+                        About Me ▽
+                        </button>
+                    </ScrollLink>
                 </div>
             </div>
         </div>

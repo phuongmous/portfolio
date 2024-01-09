@@ -1,13 +1,20 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { Link as ScrollLink, animateScroll as scroll } from "react-scroll";
 import { BsLinkedin, BsGithub } from "react-icons/bs";
 import { SiGmail } from "react-icons/si";
-export default function NavBar () {
+
+
+export default function NavBar ({setNavHeight}) {
     const scrollToTop = () => {
         scroll.scrollToTop();
     }
+    const elementRef = useRef(null);
+
+    useEffect(() => {
+    setNavHeight(elementRef.current.offsetHeight);
+  }, []);
     return (
-        <nav className="bg-gray-800 p-4 md:p-2 text-white">
+        <nav ref={elementRef} className="sticky top-0 bg-gray-800 p-4 md:p-2 text-white">
             <div className="container mx-auto my-3 md:flex md:my-0 justify-between items-center">
                 <div className="cursor-pointer md:ml-4" onClick={scrollToTop}>Logo</div>
                 <div className="flex mx-10 my-4 space-x-7 md:space-x-14">
