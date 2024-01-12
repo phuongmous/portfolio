@@ -4,21 +4,22 @@ import aboutMeImage2 from '../img/about-me2.jpg';
 import aboutMeImage3 from '../img/about-me3.jpg';
 import aboutMeImage4 from '../img/about-me4.jpg';
 import aboutMeImage5 from '../img/about-me5.png';
+import tailwind from '../img/tailwind.png';
 export default function () {
     return (
         <div id="aboutSection" className="h-screen flex flex-col mx-3 pt-[10rem] md:flex-row md:mx-4 md:pt-[4rem] text-pretty">
-            <div className="basis-3/5 flex flex-col md:mx-4">
+            <div className="flex-1 md:mx-4">
                 <div className="py-2 font-bold md:text-xl text-left">________________</div>
                 <div className="text-xl font-bold md:text-4xl text-left">About</div>
                 <div className="text-xl font-bold md:text-4xl text-left">Me</div>
-                <div className="flex flex-row">
+                <div className="flex flex-col md:flex-row">
                     <div className="basis-2/4">
                         <p className="mt-2 mr-4 md:mr-1 text-right">I 
                         <span className="uppercase text-md font-bold"> love </span> 
                         creating meaningful apps
                         </p>
                         <img src={aboutMeImage1} alt="About Me Image 1" className="w-full h-auto basis-2/4 rounded mt-2 shadow-md"/>
-                        <p className="my-2 mr-2 md:mr-4 md:my-4 text-left text-sm">
+                        <p className="my-2 md:my-4 text-left text-sm">
                         I'm a 
                         <span className="uppercase text-sm font-bold"> fast </span>
                         learner & have a 
@@ -26,13 +27,13 @@ export default function () {
                         attitude
                         </p>
                     </div>
-                    <div className="basis-2/4 ml-3">
-                        <img src={aboutMeImage2} alt="About Me Image 2" className="w-full h-full basis-2/4 rounded md:ml-2 shadow-md"/>
+                    <div className="basis-2/4">
+                        <img src={aboutMeImage2} alt="About Me Image 2" className="w-full h-full basis-2/4 rounded mb-4 md:mx-2 shadow-md"/>
                     </div>
                 </div>
-                <div className="flex flex-row">
-                        <div className="basis-2/4 mr-3">
-                            <img src={aboutMeImage3} alt="About Me Image 3" className="w-full h-3/4 basis-2/4 rounded shadow-md"/>
+                <div className="flex flex-col md:flex-row">
+                        <div className="basis-2/4">
+                            <img src={aboutMeImage3} alt="About Me Image 3" className="w-full h-5/6 basis-2/4 rounded shadow-md"/>
                         </div>
                         <div className="basis-2/4">
                             <p className="my-2 md:mt-5 md:ml-3 text-right">
@@ -42,7 +43,7 @@ export default function () {
                             <span className="uppercase text-xl font-bold"> attention </span>
                             to details
                             </p>
-                            <img src={aboutMeImage4} alt="About Me Image 4" className="w-full h-auto basis-2/4 rounded md:mt-2 md:ml-2 shadow-md"/>
+                            <img src={aboutMeImage4} alt="About Me Image 4" className="w-full h-auto basis-2/4 rounded md:mt-2 md:mx-2 shadow-md"/>
                             <p className="my-2 md:ml-2 md:mt-4 text-left text-sm">
                             I'm a great 
                             <span className="uppercase text-md font-bold"> team player </span>
@@ -50,9 +51,9 @@ export default function () {
                         </div>
                 </div>
             </div>
-            <div className="basis-2/5 md:mx-4 md:my-[2rem]">
+            <div className="flex-1 md:mx-4 md:my-[2rem]">
                     <div className="text-sm text-justify bg-contain bg-center bg-no-repeat shadow-md" style={{ backgroundImage: `url(${aboutMeImage5})`}}>
-                        <div className="bg-gray-200 bg-opacity-60 px-4 py-4 md:py-8 rounded">
+                        <div className="bg-pink-100 bg-opacity-60 px-4 py-4 md:py-8 rounded">
                             <p className="text-gray-800 pb-4">
                             <span className="text-md font-bold">Hi, my name is Phuong</span>. I'm a junior software engineer who is driven by the belief that technology can bring positive change to our life.
                             </p>
