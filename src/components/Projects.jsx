@@ -65,7 +65,7 @@ export default function Projects () {
     return (
         <div className="h-screen mx-8">
           <div className="text-4xl font-bold text-center my-8">MY PROJECTS</div>
-          <div className="flex items-center justify-center">
+          <div className="flex items-center justify-center m-[10rem]">
             <button onClick={prevProject} className="text-4xl mr-4"><MdArrowBackIos /></button>
             <Project {...projectsData[currentProject]} />
             <button onClick={nextProject} className="text-4xl ml-4"><MdArrowForwardIos /></button>
