@@ -51,9 +51,11 @@ const projectsData = [
         techStacks: [javascriptLogo, htmlLogo, cssLogo]
     },
 ]
-export default function Projects () {
+export default function Projects ({scrollTo}) {
     const [currentProject, setCurrentProject] = useState(0);
-
+    const handleScrollToSection = () => {
+        scrollTo('skillsSection');
+    };
     const nextProject = () => {
     setCurrentProject((prev) => (prev + 1) % projectsData.length);
     };
@@ -63,13 +65,23 @@ export default function Projects () {
     };
 
     return (
-        <div className="h-screen mx-8">
-          <div className="text-4xl font-bold text-center my-8">MY PROJECTS</div>
-          <div className="flex items-center justify-center m-[10rem]">
-            <button onClick={prevProject} className="text-4xl mr-4"><MdArrowBackIos /></button>
-            <Project {...projectsData[currentProject]} />
-            <button onClick={nextProject} className="text-4xl ml-4"><MdArrowForwardIos /></button>
-          </div>
+        <div id="projectsSection" className="projects-section my-8 h-screen relative">
+            <div className="info-section md:mt-[10rem] absolute z-10">
+                <div className="text-4xl font-bold text-center my-8">MY PROJECTS</div>
+                <div className="flex items-center justify-center m-[10rem]">
+                    <button onClick={prevProject} className="text-4xl mr-4"><MdArrowBackIos /></button>
+                    <Project {...projectsData[currentProject]} />
+                    <button onClick={nextProject} className="text-4xl ml-4"><MdArrowForwardIos /></button>
+                </div>
+                <div className="mt-[10rem] md:mt-[15rem]">
+                            <button 
+                            className="bg-blue-100 text-black py-2 px-4 rounded focus:outline-none animate-bounce" 
+                            onClick={handleScrollToSection}
+                            >
+                                Tech Skills ▽
+                            </button>
+                    </div>
+            </div>
         </div>
     );
 }

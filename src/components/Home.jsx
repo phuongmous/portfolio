@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { GiPositionMarker } from "react-icons/gi";
 import homeImage from "../img/home-img.png";
-import { animateScroll as scroll } from 'react-scroll';
 
-export default function Home ({navHeight}) {
+export default function Home ({scrollTo}) {
     const textToType = 'PHUONG VU';
     const [currentPosition, setCurrentPosition] = useState(0);
     useEffect(() => {
@@ -17,19 +16,15 @@ export default function Home ({navHeight}) {
     }, []); // The dependency array should be empty to run the effect only once
       // Display only the characters that have been typed so far
     const typedText = textToType.slice(0, currentPosition);
-
-    const handleScrollToAbout = () => {
-        const position = document.getElementById('aboutSection').offsetTop
-        scroll.scrollTo(position, {
-          smooth: 'true',
-        });
+    const handleScrollToSection = () => {
+        scrollTo('aboutSection');
     };
 
     return (
-        <div className="h-screen bg-gray-100 px-5 py-[3rem] md:py-[9rem] ">
-            <div className="container mx-auto flex-col md:flex justify-center items-center">
-                <div className="flex flex-col md:flex-row items-center">
-                    <div className="text-center md:text-left md:mr-10">
+        <div className="home-section h-screen bg-gray-100 px-5 py-[3rem] md:py-[9rem] ">
+            <div className="home-container mx-auto my-12 flex-col md:flex justify-center items-center">
+                <div className="home-info flex flex-col md:flex-row items-center">
+                    <div className="text-center space-y-10 md:text-left md:mr-10">
                         <h4 className="text-md my-3 font-semibold text-gray-600">Hey there! I'm</h4>
                         <h1 className="text-4xl my-4 font-bold text-gray-900">{typedText}</h1>
                         <h5 className="text-lg my-4 font-medium text-gray-700">JUNIOR SOFTWARE ENGINEER</h5>
@@ -42,8 +37,11 @@ export default function Home ({navHeight}) {
                         <img src={homeImage} alt="Home Image" className="md:w-60 md:h-60" />
                     </div>
                 </div>
-                <div className="mt-[10rem] md:mt-[15rem]">
-                        <button className="bg-blue-100 text-black py-2 px-4 rounded focus:outline-none animate-bounce" onClick={handleScrollToAbout}>
+                <div className="about-button my-[5rem] md:mt-[15rem]">
+                        <button 
+                        className="bg-blue-100 text-black py-2 px-4 rounded focus:outline-none animate-bounce" 
+                        onClick={handleScrollToSection}
+                        >
                         About Me ▽
                         </button>
                 </div>

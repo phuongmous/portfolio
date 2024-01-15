@@ -12,11 +12,14 @@ import bootstrapLogo from '../img/bootstrap.png';
 import pythonLogo from '../img/python.png';
 import herokuLogo from '../img/heroku.png';
 import githubLogo from '../img/github.png';
-export default function Skills () {
+export default function Skills ({scrollTo}) {
+    const handleScrollToSection = () => {
+        scrollTo('contactSection');
+    };
     return (
-        <div className="h-screen">
+        <div id="skillsSection" className="h-screen">
             <div className="text-4xl font-bold text-center my-8 uppercase">Tech Skills</div>
-            <div className="flex flex-wrap gap-8 m-[10rem] p-6 justify-center rounded-lg bg-gray-100 bg-opacity-70 shadow-md">
+            <div className="flex flex-wrap gap-8 md:m-[10rem] p-6 justify-center rounded-lg bg-gray-100 bg-opacity-70 shadow-md">
                 <img src={javascriptLogo} alt="JavaScript Logo" className="h-[4rem] w-auto" />
                 <img src={htmlLogo} alt="HTML Logo" className="h-[4rem] w-auto" />
                 <img src={cssLogo} alt="CSS Logo" className="h-[4rem] w-auto" />
@@ -31,6 +34,14 @@ export default function Skills () {
                 <img src={pythonLogo} alt="Python Logo" className="h-[4rem] w-auto" />
                 <img src={herokuLogo} alt="Python Logo" className="h-[4rem] w-auto" />
                 <img src={githubLogo} alt="Python Logo" className="h-[4rem] w-auto" />
+            </div>
+            <div className="mt-[10rem] md:mt-[15rem]">
+                    <button 
+                    className="bg-blue-100 text-black py-2 px-4 rounded focus:outline-none animate-bounce" 
+                    onClick={handleScrollToSection}
+                    >
+                        Contact ▽
+                    </button>
             </div>
         </div>
     );

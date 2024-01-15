@@ -7,15 +7,13 @@ import { BsLinkedin } from "react-icons/bs";
 
 const Contact = () => {
   const [state, handleSubmit] = useForm('xnqendlp');
-
   if (state.succeeded) {
     return <p className="text-black text-4xl animate-pulse">Thanks for your message! I'll get back to you soon ❤️</p>;
   }
-
   return (
-    <div className="contact-section h-screen">
+    <div id="contactSection" className="contact-section h-screen">
         <div className="text-4xl font-bold text-center my-8 uppercase">Contact</div>
-        <div className="flex m-[10rem]">
+        <div className="flex md:m-[10rem]">
             <div className="contact-info basis-1/2 flex flex-col m-6 space-y-4">
                 <p className="text-left">If you would like to work together or just want to say hi, my inbox is always open!</p>
                 <div className="flex flex-row items-center space-x-3">
